@@ -23,7 +23,7 @@ bank = {'yzg': {
 bank_name = "狼腾测试猿银行"    # 银行
 
 
-# 用户信息
+# 添加用户信息
 def bank_adduser(account, username, password, country, province, street, door):
     if len(bank) > 100:
         return 3
@@ -45,7 +45,7 @@ def bank_adduser(account, username, password, country, province, street, door):
 # 开户
 def adduser():         # 定义了一个方法
     username = input("请输入您的用户名")
-    password = input("请输入您的密码")
+    password = int(input("请输入您的密码"))
     print("请输入您的地址")
     country = input("\t\t请输入您的国家")
     province = input("\t\t请输入您的省份")
@@ -85,7 +85,6 @@ def quqian():
                 if money > bank[key]['money']:
                     print("该账户没有足够的钱")
                     break
-                    return 3
                 else:
                     bank[key]['money'] -= money
                     print("您取出了{}。当前余额为{}".format(money, bank[key]['money']))
@@ -93,10 +92,8 @@ def quqian():
             else:
                 print("密码输入错误")
                 break
-                return 2
     else:
         print("没有该账户")
-        return 1
 
 
 # 存钱
@@ -113,10 +110,8 @@ def cunqian():
             else:
                 print("密码输入错误")
                 break
-                return 2
     else:
         print("没有该账户")
-        return 1
 
 
 # 转账
@@ -133,7 +128,6 @@ def zhuangzhang():
                         if money > bank[k1]['money']:
                             print('您的账户余额不足！')
                             break
-                            return 3
                         else:
                             bank[k1]['money'] -= money
                             bank[k2]['money'] += money
@@ -143,11 +137,10 @@ def zhuangzhang():
                     else:
                         print('密码错误')
                         break
-                        return 2
             else:
                 print('转入账户不存在')
                 break
-                return 1
+            break
     else:
         print('账户不存在')
         return 1
